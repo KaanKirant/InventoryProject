@@ -13,4 +13,6 @@ UCLASS()
 class INVENTORY_API AInv_PlayerController : public APlayerController
 {
 	GENERATED_BODY()
+protected:
+	virtual void BeginPlay() override;
 };
