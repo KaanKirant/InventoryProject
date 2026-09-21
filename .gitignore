@@ -1,0 +1,42 @@
+# Ignore Intermediate files
+Intermediate/
+Saved/
+DerivedDataCache/
+
+# Ignore binaries
+Binaries/
+
+# Ignore built data
+*.suo
+*.user
+*.userprefs
+*.sln
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+*.opendb
+*.slnx
+*.xcodeproj
+*.xcworkspace
+
+# Ignore assets (optional)
+Content/InventoryAssets**
+Content/Characters**
+Content/ThirdPerson**
+Content/Collections**
+Content/Developers**
+Content/Input**
+Content/LevelPrototyping**
+Content/__ExternalObjects__**
+Content/__ExternalActors__**
+
+# Ignore Platforms
+Platforms/
+
+# Ignore .idea
+.idea/
+
+# Ignore .vsconfig
+.vsconfig
+/Plugins/Inventory/Resources
