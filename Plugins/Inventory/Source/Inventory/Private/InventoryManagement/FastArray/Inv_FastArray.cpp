@@ -47,13 +47,13 @@ UInv_InventoryItem* FInv_InventoryFastArray::AddEntry(UInv_ItemComponent* ItemCo
 	check(OwningActor->HasAuthority());
 	UInv_InventoryComponent* IC = Cast<UInv_InventoryComponent>(OwnerComponent);
 	if (!IsValid(IC)) return nullptr;
-	
+
 	FInv_InventoryEntry& NewEntry = Entries.AddDefaulted_GetRef();
 	NewEntry.Item = ItemComponent->GetItemManifest().Manifest(OwningActor);
-	
+
 	IC->AddRepSubObj(NewEntry.Item);
 	MarkItemDirty(NewEntry);
-	
+
 	return NewEntry.Item;
 }
 
