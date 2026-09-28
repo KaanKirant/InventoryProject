@@ -104,9 +104,12 @@ bool UInv_InventoryGrid::CheckSlotConstraints(const UInv_GridSlot* GridSlot, con
 	
 	// Is this grid slot upper left slot?
 	if (!IsUpperLeftSlot(GridSlot, SubGridSlot)) return false;
+	// If so, is this a stackable item?
+	const UInv_InventoryItem* SubItem = SubGridSlot->GetInventoryItem().Get();
+	if (!SubItem->IsStackable()) return false;
+	
 	
 	// Is this item the same type as the item we are trying to add?
-	// If so, is this a stackable item?
 	// If stackable, is this slot at the max stack size already?
 	return false;
 }
