@@ -10,7 +10,7 @@ class UInv_InventoryItem;
 class UImage;
 
 UENUM(BlueprintType)
-enum class EInv_GridSlotSlate : uint8
+enum class EInv_GridSlotState : uint8
 {
 	Unoccupied,
 	Occupied,
@@ -25,7 +25,7 @@ class INVENTORY_API UInv_GridSlot : public UUserWidget
 public:
 	void SetTileIndex(int32 Index) {TileIndex = Index;}
 	int32 GetTileIndex() const {return TileIndex;}
-	EInv_GridSlotSlate GetGridSlotSlate() const {return GridSlotSlate;}
+	EInv_GridSlotState GetGridSlotSlate() const {return GridSlotSlate;}
 	
 	TWeakObjectPtr<UInv_InventoryItem> GetInventoryItem() const {return InventoryItem;}
 	void SetInventoryItem(UInv_InventoryItem* Item);
@@ -65,5 +65,5 @@ private:
 	UPROPERTY(EditAnywhere, Category="Inventory")
 	FSlateBrush Brush_GrayedOut;
 	
-	EInv_GridSlotSlate GridSlotSlate;
+	EInv_GridSlotState GridSlotSlate;
 };

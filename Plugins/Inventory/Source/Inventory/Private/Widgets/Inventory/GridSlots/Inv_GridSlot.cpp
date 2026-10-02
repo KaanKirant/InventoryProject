@@ -12,24 +12,24 @@ void UInv_GridSlot::SetInventoryItem(UInv_InventoryItem* Item)
 
 void UInv_GridSlot::SetUnoccupiedTexture()
 {
-	GridSlotSlate = EInv_GridSlotSlate::Unoccupied;
+	GridSlotSlate = EInv_GridSlotState::Unoccupied;
 	Image_GridSlot->SetBrush(Brush_Unoccupied);
 }
 
 void UInv_GridSlot::SetOccupiedTexture()
 {
-	GridSlotSlate = EInv_GridSlotSlate::Occupied;
+	GridSlotSlate = EInv_GridSlotState::Occupied;
 	Image_GridSlot->SetBrush(Brush_Occupied);
 }
 
 void UInv_GridSlot::SetSelectedTexture()
 {
-	GridSlotSlate = EInv_GridSlotSlate::Selected;
+	GridSlotSlate = EInv_GridSlotState::Selected;
 	Image_GridSlot->SetBrush(Brush_Selected);
 }
 
 void UInv_GridSlot::SetGrayedOutTexture()
 {
-	GridSlotSlate = EInv_GridSlotSlate::GrayedOut;
+	GridSlotSlate = EInv_GridSlotState::GrayedOut;
 	Image_GridSlot->SetBrush(Brush_GrayedOut);
 }
