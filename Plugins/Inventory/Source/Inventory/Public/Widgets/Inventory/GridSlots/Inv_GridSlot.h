@@ -35,7 +35,7 @@ public:
 	void SetIndex(int32 Index) {TileIndex = Index;}
 	int32 GetUpperLeftIndex() const {return UpperLeftIndex;}
 	void SetUpperLeftIndex(int32 Index) {UpperLeftIndex = Index;}
-	bool Isavailable() const {return bAvailable;}
+	bool IsAvailable() const {return bAvailable;}
 	void SetAvailable(bool bIsAvailable) {bAvailable = bIsAvailable;}
 	
 	
@@ -44,11 +44,11 @@ public:
 	void SetSelectedTexture();
 	void SetGrayedOutTexture();
 private:
-	int32 TileIndex;
-	int32 StackCount;
+	int32 TileIndex{INDEX_NONE};
+	int32 StackCount{0};
 	int32 UpperLeftIndex{INDEX_NONE};
 	TWeakObjectPtr<UInv_InventoryItem> InventoryItem;
-	bool bAvailable;
+	bool bAvailable{true};
 	
 	UPROPERTY(meta=(BindWidget))
 	TObjectPtr<UImage> Image_GridSlot;
