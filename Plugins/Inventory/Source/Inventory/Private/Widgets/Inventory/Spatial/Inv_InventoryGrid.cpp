@@ -608,6 +608,17 @@ void UInv_InventoryGrid::CreateItemPopUp(const int32 GridIndex)
 	}
 }
 
+void UInv_InventoryGrid::DropItem()
+{
+	if (!IsValid(HoverItem)) return;
+	if (!IsValid(HoverItem->GetInventoryItem())) return;
+	
+	// TODO: Tell the server to actually drop the item
+	
+	ClearHoverItem();
+	ShowCursor();
+}
+
 void UInv_InventoryGrid::AddItem(UInv_InventoryItem* Item)
 {
 	if (!MatchesCategory(Item)) return;
@@ -932,6 +943,11 @@ void UInv_InventoryGrid::OnPopUpMenuSplit(const int32 SplitAmount, const int32 I
 
 void UInv_InventoryGrid::OnPopUpMenuDrop(const int32 Index)
 {
+	UInv_InventoryItem* RightClickedItem = GridSlots[Index]->GetInventoryItem().Get();
+	if (!IsValid(RightClickedItem)) return;
+	
+	PickUp(RightClickedItem, Index);
+	DropItem();
 }
 
 void UInv_InventoryGrid::OnPopUpMenuConsume(const int32 Index)
