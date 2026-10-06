@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 
 #include "InventoryManagement/Components/Inv_InventoryComponent.h"
 
@@ -80,6 +78,26 @@ void UInv_InventoryComponent::Server_AddStacksToItem_Implementation(UInv_ItemCom
 	{
 		StackableFragment->SetStackCount(Remainder);
 	}
+}
+
+void UInv_InventoryComponent::Server_DropItem_Implementation(UInv_InventoryItem* Item, int32 StackCount)
+{
+	const int32 NewStackCount = Item->GetTotalStackCount() - StackCount;
+	if (NewStackCount <= 0)
+	{
+		InventoryList.RemoveEntry(Item);
+	}
+	else
+	{
+		Item->SetTotalStackCount(NewStackCount);
+	}
+	
+	SpawnDroppedItem(Item, StackCount);
+}
+
+void UInv_InventoryComponent::SpawnDroppedItem(UInv_InventoryItem* Item, int32 StackCount)
+{
+	// TODO: Spawn the dropped item in the level.
 }
 
 void UInv_InventoryComponent::ToggleInventoryMenu()
