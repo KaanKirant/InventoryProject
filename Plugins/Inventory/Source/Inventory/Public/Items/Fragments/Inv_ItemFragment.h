@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"	
+#include "Serialization/ShaderKeyGenerator.h"
 #include "Inv_ItemFragment.generated.h"
 
 class APlayerController;
@@ -60,11 +61,12 @@ private:
 };
 
 USTRUCT(BlueprintType)
-struct FInv_ImageFragment : public FInv_ItemFragment
+struct FInv_ImageFragment : public FInv_InventoryItemFragment
 {
 	GENERATED_BODY()
 	
 	UTexture2D* GetIcon() const { return Icon; }
+	virtual void Assimilate(UInv_CompositeBase* Composite) const override;
 	
 private:
 	UPROPERTY(EditAnywhere, Category = "Inventory")
@@ -72,6 +74,19 @@ private:
 	
 	UPROPERTY(EditAnywhere, Category = "Inventory")
 	FVector2D IconDimensions{44.f, 44.f};
+};
+
+USTRUCT(BlueprintType)
+struct FInv_TextFragment : public FInv_InventoryItemFragment
+{
+	GENERATED_BODY()
+	FText GetText() const { return FragmentText; }
+	void SetText(const FText& Text) { FragmentText = Text; }
+	virtual void Assimilate(UInv_CompositeBase* Composite) const override;
+	
+private:
+	UPROPERTY(EditAnywhere, Category = "Inventory")
+	FText FragmentText;
 };
 
 USTRUCT(BlueprintType)
