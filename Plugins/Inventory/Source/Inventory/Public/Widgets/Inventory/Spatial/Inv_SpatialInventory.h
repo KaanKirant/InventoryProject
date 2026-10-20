@@ -11,10 +11,9 @@ class UCanvasPanel;
 class UButton;
 class UWidgetSwitcher;
 class UInv_InventoryGrid;
+class UInv_HoverItem;
 
-/**
- * 
- */
+
 UCLASS()
 class INVENTORY_API UInv_SpatialInventory : public UInv_InventoryBase
 {
@@ -28,6 +27,7 @@ public:
 	virtual void OnItemHovered(UInv_InventoryItem* Item) override;
 	virtual void OnItemUnhovered() override;
 	virtual bool HasHoverItem() const override;
+	virtual UInv_HoverItem* GetHoverItem() const override;
 	
 private:
 	UPROPERTY()
