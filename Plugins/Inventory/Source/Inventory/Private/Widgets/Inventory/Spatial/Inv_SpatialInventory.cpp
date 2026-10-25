@@ -47,7 +47,7 @@ void UInv_SpatialInventory::EquippedGridSlotClicked(UInv_EquippedGridSlot* Equip
 	// Check to see if we can equip hover item
 	if (!CanEquipHoverItem(EquippedGridSlot, EquipmentTypeTag)) return;	
 	
-	// Create an equipped slotted item and add it to the equipped grid slot
+	// Create an equipped slotted item and add it to the equipped grid slot (call equipped grid slot on item equipped)
 	
 	
 	// Clear the hover item
