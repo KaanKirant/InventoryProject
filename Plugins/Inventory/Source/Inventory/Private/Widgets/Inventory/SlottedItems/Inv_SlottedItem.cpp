@@ -31,7 +31,7 @@ void UInv_SlottedItem::SetInventoryItem(UInv_InventoryItem* Item)
 
 void UInv_SlottedItem::SetImageBrush(const FSlateBrush& Brush) const
 {
-	ImageIcon->SetBrush(Brush);
+	Image_Icon->SetBrush(Brush);
 }
 
 void UInv_SlottedItem::UpdateStackCount(int32 StackCount)

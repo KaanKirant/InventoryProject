@@ -24,7 +24,7 @@ public:
 	
 	bool IsStackable() const { return bIsStackable; }
 	void SetIsStackable(bool bStackable){ bIsStackable = bStackable; }
-	UImage* GetImageIcon() const {return ImageIcon;}
+	UImage* GetImageIcon() const {return Image_Icon;}
 	void SetGridIndex(int32 Index) { GridIndex = Index; }
 	int32 GetGridIndex() const { return GridIndex; }
 	void SetGridDimensions(const FIntPoint& Dimensions) { GridDimensions = Dimensions; }
@@ -39,7 +39,7 @@ public:
 private:
 	
 	UPROPERTY(meta=(BindWidget))
-	TObjectPtr<UImage> ImageIcon;
+	TObjectPtr<UImage> Image_Icon;
 	
 	UPROPERTY(meta=(BindWidget))
 	TObjectPtr<UTextBlock> Text_StackCount;
