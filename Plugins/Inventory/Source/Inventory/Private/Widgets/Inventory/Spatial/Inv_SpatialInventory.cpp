@@ -78,7 +78,17 @@ void UInv_SpatialInventory::EquippedGridSlotClicked(UInv_EquippedGridSlot* Equip
 
 void UInv_SpatialInventory::EquippedSlottedItemClicked(UInv_EquippedSlottedItem* SlottedItem)
 {
-	
+	// Remove the item description
+	// Get the EquippedGridSlot holding this item
+	// Get Item to equip
+	// Get Item to unequip
+	// Clear the equipped grid slot of this item (set its inventory item to null)
+	// Remove the equipped slotted item from the equipped grid slot 
+		// (unbind from the OnEquippedSlottedItemClicked)
+		// Removing the Equipped Slotted Item from Parent
+		// Assign previously equipped item as the hover item
+	// Make a new equipped slotted item (for the item we held in hover item)
+	// Broadcast delegates for OnItemEquipped/OnItemUnequipped (from the InventoryComponent)
 }
 
 FReply UInv_SpatialInventory::NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)
