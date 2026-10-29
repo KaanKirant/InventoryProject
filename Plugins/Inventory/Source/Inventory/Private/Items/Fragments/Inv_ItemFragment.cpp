@@ -122,6 +122,11 @@ void FInv_EquipmentFragment::DestroyAttachedActor()
 	}
 }
 
+void FInv_EquipmentFragment::SetEquippedActor(AInv_EquipActor* EquipActor)
+{
+	EquippedActor = EquipActor;
+}
+
 void FInv_InventoryItemFragment::Assimilate(UInv_CompositeBase* Composite) const
 {
 	if (!MatchesWidgetTag(Composite)) return;
