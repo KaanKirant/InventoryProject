@@ -2,7 +2,6 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"	
-#include "Serialization/ShaderKeyGenerator.h"
 #include "StructUtils/InstancedStruct.h"
 #include "Inv_ItemFragment.generated.h"
 
@@ -206,6 +205,7 @@ struct FInv_StrengthModifier : public FInv_EquipModifier
 	virtual void OnUnequip(APlayerController* PC) override;
 };
 
+class AInv_EquipActor;
 USTRUCT(BlueprintType)
 struct FInv_EquipmentFragment : public FInv_InventoryItemFragment
 {
@@ -217,8 +217,19 @@ struct FInv_EquipmentFragment : public FInv_InventoryItemFragment
 	virtual void Assimilate(UInv_CompositeBase* Composite) const override;
 	virtual void Manifest() override;
 	
+	AInv_EquipActor* SpawnAttachedActor(USkeletalMeshComponent* AttachMesh) const;
+	void DestroyAttachedActor();
+	
 private:
 	UPROPERTY(EditAnywhere, Category = "Inventory")
 	TArray<TInstancedStruct<FInv_EquipModifier>> EquipModifiers;
+	
+	UPROPERTY(EditAnywhere, Category = "Inventory")
+	TSubclassOf<AInv_EquipActor> EquipActorClass = nullptr;
+	
+	TWeakObjectPtr<AInv_EquipActor> EquippedActor = nullptr;
+	
+	UPROPERTY(EditAnywhere, Category = "Inventory")
+	FName SocketAttachPoint{NAME_None};
 };
 
